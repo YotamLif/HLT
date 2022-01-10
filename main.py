@@ -6,7 +6,7 @@ from qiskit.providers import Backend
 from qiskit.providers.aer import AerSimulator
 
 from tomography.ansatz import AnsatzResults, get_ansatz
-from tomography.cyclic_measure import CyclicMeasurer
+from tomography.cyclic_measurer import CyclicMeasurer
 from utils.hamil_utils import TransverseIsingHamiltonian, get_ghz_circ, \
     get_random_k_local_gibbs_circ, get_circ_from_gibbs_hamiltonian
 from utils.np_utils import get_fidelity
@@ -15,7 +15,7 @@ from utils.qiskit_utils import get_density_matrix_from_simulation, get_air_simul
 
 
 def analyze_circ(sys_size: int,
-                 circ: Union[QuantumCircuit, Callable[[], QuantumCircuit]],
+                 circ: QuantumCircuit,
                  qubits_to_reconstruct: List[int],
                  backend: Union[AerSimulator, Backend],
                  range_constraints: int,

@@ -14,6 +14,11 @@ from qiskit.result import Result
 
 @dataclass
 class Basis(ABC):
+    """
+    Abstract class for measurement basis
+    Args:
+        basis: string representation of the basis.
+    """
     basis: str
 
     def __init__(self, basis: str) -> None:
@@ -26,12 +31,21 @@ class Basis(ABC):
         return hash(self.__str__())
 
     @abstractmethod
-    def basis_measurement(self, measure: bool = True):
+    def basis_measurement(self, measure: bool = True) -> QuantumCircuit:
+        """
+
+        @param measure: if true, adds a measurement for all the qubits
+        @return: a QuantumCircuit which represents the rotation
+         needed for the Basis.
+        """
         pass
 
 
 @dataclass
 class PauliBasis(Basis):
+    """
+    Pauli basis: represented by Pauli string (X,Y,Z)
+    """
 
     def __init__(self, basis: str) -> None:
         super().__init__(basis)
@@ -40,6 +54,12 @@ class PauliBasis(Basis):
         return super.__hash__(self)
 
     def basis_measurement(self, measure: bool = True) -> QuantumCircuit:
+        """
+        Pauli basis measurement
+        @param measure: if true, adds a measurement for all the qubits
+        @return: a QuantumCircuit which represents the measure in the
+         specific Pauli basis.
+        """
         basis = self.__str__()
         n_qubits = len(basis)
         circ = QuantumCircuit(n_qubits)
@@ -59,6 +79,17 @@ class PauliBasis(Basis):
 
 
 class CyclicMeasurer:
+    """
+    A class which performs Overlapping Local Tomography as described in
+     https://arxiv.org/pdf/2108.08824.pdf for 1D open chain.
+    Args:
+        bases: constant for Pauli strings
+        qubits: the qubit indices to measure
+        circ: the quantum circuit which produce the density matrix to be
+         measured
+        backend: used for simulating or running the measurements.
+
+    """
     bases = ['X', 'Y', 'Z']
 
     qubits: List[int]
@@ -80,6 +111,22 @@ class CyclicMeasurer:
                                         optimization_level: int = 3,
                                         initial_layout: List[int] = None) \
             -> Dict[PauliBasis, Counter]:
+        """
+        The main function of CyclicMeasurer
+        @param cycle_size: the cycle size for which measurements will be
+         generated. All (cycle_size)-local Paulis will be measured. In the case
+         of HLT this size is defined by (see also CyclicMeasurer.get_cycle_size):
+         range of constraints + range of Hamiltonians - 1
+        @param total_number_of_shots: the total number of shots to use in all
+         the bases, in total (remainder of shots which cannot be distributed
+         equally between all bases is discarded).
+        @param optimization_level: How much optimization to perform on the circuits,
+         as described in qiskit.compiler.transpile
+        @param initial_layout: Initial position of virtual qubits on physical qubits,
+         as described in qiskit.compiler.transpile
+        @return: A dictionary from the Pauli bases to Counters with the results
+         for each basis
+        """
         cycle_size = self._get_cycle_size(cycle_size)
         bases = self.get_pauli_bases(cycle_size)
         shots_per_experiment = self.get_number_of_shots_per_experiment(bases, total_number_of_shots)
@@ -109,6 +156,15 @@ class CyclicMeasurer:
 
     @staticmethod
     def get_cycle_size(range_hamiltonians: int, range_constraints: int) -> int:
+        """
+        Static method for getting the cycle size of HLT which is defined:
+         range of constraints + range of Hamiltonians - 1
+        @param range_hamiltonians: the range of Hamiltonians in the constraint matrix
+         as defined in the main paper.
+        @param range_constraints: the range of constraints in the constraint matrix
+         as defined in the main paper.
+        @return: the cycle size of HLT
+        """
         return range_hamiltonians + range_constraints - 1
 
     @staticmethod
@@ -123,11 +179,23 @@ class CyclicMeasurer:
         return results_dict
 
     def get_pauli_bases(self, cycle_size: int) -> List[PauliBasis]:
+        """
+
+        @param cycle_size: the cycle size as defined in Overlapping local tomography.
+        @return: the Pauli bases needed to be measured (defined by the number of
+         qubits and cycle size.
+        """
         bases = self.get_pauli_labels(cycle_size)
         bases = [PauliBasis(''.join(basis)) for basis in bases]
         return bases
 
     def get_pauli_labels(self, cycle_size) -> List[Tuple[str]]:
+        """
+
+        @param cycle_size: the cycle size as defined in Overlapping local tomography.
+        @return: the Pauli bases labels needed to be measured (defined by the number
+         of qubits and cycle size.
+        """
         cycle_bases = itertools.product(self.bases, repeat=cycle_size)
         num_cycles = int(np.ceil(self.system_size / float(cycle_size)))
         bases = [(basis * num_cycles)[:self.system_size] for basis in cycle_bases]
@@ -135,6 +203,13 @@ class CyclicMeasurer:
 
     @staticmethod
     def get_number_of_shots_per_experiment(bases: List[Union[tuple, PauliBasis]], total_number_of_shots: int) -> int:
+        """
+
+        @param bases: the measurements needed to be measured
+        @param total_number_of_shots: total number of shots for all bases
+        @return: number of measurements for each basis (remainder of shots which
+         cannot be distributed equally between all bases is discarded).
+        """
         shots_per_experiment = total_number_of_shots // len(bases)
         logging.debug(f"Total number of measurements for cyclic measure is: {shots_per_experiment * len(bases)}")
         return shots_per_experiment
