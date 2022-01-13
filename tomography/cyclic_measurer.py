@@ -15,9 +15,9 @@ from qiskit.result import Result
 @dataclass
 class Basis(ABC):
     """
-    Abstract class for measurement basis
-    Args:
-        basis: string representation of the basis.
+    Abstract class for measurement basis.
+
+    :param basis: string representation of the basis.
     """
     basis: str
 
@@ -34,8 +34,8 @@ class Basis(ABC):
     def basis_measurement(self, measure: bool = True) -> QuantumCircuit:
         """
 
-        @param measure: if true, adds a measurement for all the qubits
-        @return: a QuantumCircuit which represents the rotation
+        :param measure: if true, adds a measurement for all the qubits
+        :return: a QuantumCircuit which represents the rotation
          needed for the Basis.
         """
         pass
@@ -56,8 +56,9 @@ class PauliBasis(Basis):
     def basis_measurement(self, measure: bool = True) -> QuantumCircuit:
         """
         Pauli basis measurement
-        @param measure: if true, adds a measurement for all the qubits
-        @return: a QuantumCircuit which represents the measure in the
+
+        :param measure: if true, adds a measurement for all the qubits
+        :return: a QuantumCircuit which represents the measure in the
          specific Pauli basis.
         """
         basis = self.__str__()
@@ -81,13 +82,13 @@ class PauliBasis(Basis):
 class CyclicMeasurer:
     """
     A class which performs Overlapping Local Tomography as described in
-     https://arxiv.org/pdf/2108.08824.pdf for 1D open chain.
-    Args:
-        bases: constant for Pauli strings
-        qubits: the qubit indices to measure
-        circ: the quantum circuit which produce the density matrix to be
-         measured
-        backend: used for simulating or running the measurements.
+    https://arxiv.org/pdf/2108.08824.pdf for 1D open chain.
+
+    :param bases: constant for Pauli strings
+    :param qubits: the qubit indices to measure
+    :param circ: the quantum circuit which produce the density matrix to be
+     measured
+    :param backend: used for simulating or running the measurements.
 
     """
     bases = ['X', 'Y', 'Z']
@@ -113,18 +114,18 @@ class CyclicMeasurer:
             -> Dict[PauliBasis, Counter]:
         """
         The main function of CyclicMeasurer
-        @param cycle_size: the cycle size for which measurements will be
+        :param cycle_size: the cycle size for which measurements will be
          generated. All (cycle_size)-local Paulis will be measured. In the case
          of HLT this size is defined by (see also CyclicMeasurer.get_cycle_size):
          range of constraints + range of Hamiltonians - 1
-        @param total_number_of_shots: the total number of shots to use in all
+        :param total_number_of_shots: the total number of shots to use in all
          the bases, in total (remainder of shots which cannot be distributed
          equally between all bases is discarded).
-        @param optimization_level: How much optimization to perform on the circuits,
+        :param optimization_level: How much optimization to perform on the circuits,
          as described in qiskit.compiler.transpile
-        @param initial_layout: Initial position of virtual qubits on physical qubits,
+        :param initial_layout: Initial position of virtual qubits on physical qubits,
          as described in qiskit.compiler.transpile
-        @return: A dictionary from the Pauli bases to Counters with the results
+        :return: A dictionary from the Pauli bases to Counters with the results
          for each basis
         """
         cycle_size = self._get_cycle_size(cycle_size)
@@ -159,11 +160,11 @@ class CyclicMeasurer:
         """
         Static method for getting the cycle size of HLT which is defined:
          range of constraints + range of Hamiltonians - 1
-        @param range_hamiltonians: the range of Hamiltonians in the constraint matrix
+        :param range_hamiltonians: the range of Hamiltonians in the constraint matrix
          as defined in the main paper.
-        @param range_constraints: the range of constraints in the constraint matrix
+        :param range_constraints: the range of constraints in the constraint matrix
          as defined in the main paper.
-        @return: the cycle size of HLT
+        :return: the cycle size of HLT
         """
         return range_hamiltonians + range_constraints - 1
 
@@ -181,8 +182,8 @@ class CyclicMeasurer:
     def get_pauli_bases(self, cycle_size: int) -> List[PauliBasis]:
         """
 
-        @param cycle_size: the cycle size as defined in Overlapping local tomography.
-        @return: the Pauli bases needed to be measured (defined by the number of
+        :param cycle_size: the cycle size as defined in Overlapping local tomography.
+        :return: the Pauli bases needed to be measured (defined by the number of
          qubits and cycle size.
         """
         bases = self.get_pauli_labels(cycle_size)
@@ -192,8 +193,8 @@ class CyclicMeasurer:
     def get_pauli_labels(self, cycle_size) -> List[Tuple[str]]:
         """
 
-        @param cycle_size: the cycle size as defined in Overlapping local tomography.
-        @return: the Pauli bases labels needed to be measured (defined by the number
+        :param cycle_size: the cycle size as defined in Overlapping local tomography.
+        :return: the Pauli bases labels needed to be measured (defined by the number
          of qubits and cycle size.
         """
         cycle_bases = itertools.product(self.bases, repeat=cycle_size)
@@ -205,9 +206,9 @@ class CyclicMeasurer:
     def get_number_of_shots_per_experiment(bases: List[Union[tuple, PauliBasis]], total_number_of_shots: int) -> int:
         """
 
-        @param bases: the measurements needed to be measured
-        @param total_number_of_shots: total number of shots for all bases
-        @return: number of measurements for each basis (remainder of shots which
+        :param bases: the measurements needed to be measured
+        :param total_number_of_shots: total number of shots for all bases
+        :return: number of measurements for each basis (remainder of shots which
          cannot be distributed equally between all bases is discarded).
         """
         shots_per_experiment = total_number_of_shots // len(bases)

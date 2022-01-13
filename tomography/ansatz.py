@@ -24,10 +24,9 @@ from utils.hamil_utils import get_density_matrix_from_gibbs_hamiltonian
 class Parameter:
     """
     A class used as an ansatz parameter
-    Args:
-        operator: the operator multiplied by the parameter coefficient
-        coefficient: the coefficient of the parameter
-        name: parameter name
+    :param operator: the operator multiplied by the parameter coefficient
+    :param coefficient: the coefficient of the parameter
+    :param name: parameter name
     """
     operator: np.array
     coefficient: float
@@ -36,7 +35,7 @@ class Parameter:
     def get_parameter(self) -> np.array:
         """
 
-        @return: the full operator parameter, coefficient * operator
+        :return: the full operator parameter, coefficient * operator
         """
         return self.operator * self.coefficient
 
