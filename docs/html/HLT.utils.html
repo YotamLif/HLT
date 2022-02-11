@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HLT.utils package &mdash; HLT 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="HLT.tomography package" href="HLT.tomography.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HLT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">HLT</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="HLT.html">HLT package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="HLT.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HLT.examples.html">HLT.examples package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HLT.tomography.html">HLT.tomography package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HLT.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="HLT.html#module-HLT">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HLT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">HLT</a> &raquo;</li>
+          <li><a href="HLT.html">HLT package</a> &raquo;</li>
+      <li>HLT.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/HLT.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hlt-utils-package">
+<h1>HLT.utils package<a class="headerlink" href="#hlt-utils-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-HLT.utils.hamil_utils">
+<span id="hlt-utils-hamil-utils-module"></span><h2>HLT.utils.hamil_utils module<a class="headerlink" href="#module-HLT.utils.hamil_utils" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">Hamiltonian</span></span><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract class for building operators which represent Hamiltonians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> – number of qubits the Hamiltonian is acting upon</p></li>
+<li><p><strong>matrix</strong> – the matrix representation of the Hamiltonian.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian.get_ground_state">
+<span class="sig-name descname"><span class="pre">get_ground_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian.get_ground_state" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the ground state of the Hamiltonian (as a vector)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian.get_ground_state_density_matrix">
+<span class="sig-name descname"><span class="pre">get_ground_state_density_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian.get_ground_state_density_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns the ground state of the Hamiltonian as a state vector</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>qiskit.quantum_info.states.densitymatrix.DensityMatrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian.matrix">
+<span class="sig-name descname"><span class="pre">matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian.matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian.sys_size">
+<span class="sig-name descname"><span class="pre">sys_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian.sys_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.Hamiltonian.to_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.Hamiltonian.to_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the matrix representation of the Hamiltonian</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomKLocalHamiltonian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">RandomKLocalHamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pauli_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.RandomKLocalHamiltonian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian" title="HLT.utils.hamil_utils.RandomPauliHamiltonian"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.utils.hamil_utils.RandomPauliHamiltonian</span></code></a></p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">PauliHamiltonian</span></code> which contains all the k-local Pauli operators
+(of the same type)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – the maximal locality of the Paulis</p></li>
+<li><p><strong>pauli_types</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – the types of Pauli allowed, if None then all
+Paulis are allowed (X,Y,Z)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomKLocalHamiltonian.paulis">
+<span class="sig-name descname"><span class="pre">paulis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.opflow.primitive_ops.pauli_op.PauliOp</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.utils.hamil_utils.RandomKLocalHamiltonian.paulis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomPauliHamiltonian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">RandomPauliHamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paulis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rand_bot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rand_top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.utils.hamil_utils.Hamiltonian" title="HLT.utils.hamil_utils.Hamiltonian"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.utils.hamil_utils.Hamiltonian</span></code></a></p>
+<p>A Hamiltonian which is made from Pauli operators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>paulis</strong> (<em>List</em><em>[</em><em>qiskit.opflow.primitive_ops.pauli_op.PauliOp</em><em>]</em>) – the Paulis which the Hamiltonian is made of, each will
+have a random coefficient between rand_bot and rand_top.</p></li>
+<li><p><strong>rand_bot</strong> (<em>float</em>) – minimal coefficient value for Hamiltonian terms</p></li>
+<li><p><strong>rand_top</strong> (<em>float</em>) – maximal coefficient value for Hamiltonian terms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomPauliHamiltonian.init_from_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_from_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian.init_from_str" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) – a string which contains the Hamiltonian terms, each in a new
+line. Each line starts with a pauli string followed by : and the
+coefficient of the term in the Hamiltonian</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PauliHamiltonian</span></code> defined by the string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomPauliHamiltonian.paulis">
+<span class="sig-name descname"><span class="pre">paulis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.opflow.primitive_ops.pauli_op.PauliOp</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian.paulis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.RandomPauliHamiltonian.to_matrix">
+<span class="sig-name descname"><span class="pre">to_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian.to_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the matrix representation of the Hamiltonian</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.TransverseIsingHamiltonian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">TransverseIsingHamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.TransverseIsingHamiltonian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.utils.hamil_utils.RandomPauliHamiltonian" title="HLT.utils.hamil_utils.RandomPauliHamiltonian"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.utils.hamil_utils.RandomPauliHamiltonian</span></code></a></p>
+<p>Transverse Ising Hamiltonian, as defined in the main text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>B</strong> (<em>float</em>) – the coefficient of (all) the <span class="math notranslate nohighlight">\(Z_i\)</span> terms in the
+Hamiltonian</p></li>
+<li><p><strong>J</strong> (<em>float</em>) – the coefficient of (all) the <span class="math notranslate nohighlight">\(X_i X_j\)</span> terms in the
+Hamiltonian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.TransverseIsingHamiltonian.B">
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#HLT.utils.hamil_utils.TransverseIsingHamiltonian.B" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.TransverseIsingHamiltonian.J">
+<span class="sig-name descname"><span class="pre">J</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#HLT.utils.hamil_utils.TransverseIsingHamiltonian.J" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.get_circ_from_gibbs_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">get_circ_from_gibbs_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gibbs_hamiltonian</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.get_circ_from_gibbs_hamiltonian" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>gibbs_hamiltonian</strong> (<em>Union</em><em>[</em><em>numpy.array</em><em>, </em><em>torch.Tensor</em><em>]</em>) – the Gibbs Hamiltonian to produce</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a circuit which produces a Gibbs state defined by gibbs_hamiltonian
+(beta=1) on a Qiskit simulation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Union</em>[numpy.array, torch.Tensor]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.get_density_matrix_from_gibbs_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">get_density_matrix_from_gibbs_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gibbs_hamiltonian</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.get_density_matrix_from_gibbs_hamiltonian" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gibbs_hamiltonian</strong> (<em>Union</em><em>[</em><em>numpy.array</em><em>, </em><em>torch.Tensor</em><em>]</em>) – the Gibbs Hamiltonian which defines the Gibbs
+state.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the density matrix of a Gibbs state defined by the Gibbs
+Hamiltonian (beta=1)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Union</em>[numpy.array, torch.Tensor]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.get_ghz_circ">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">get_ghz_circ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.get_ghz_circ" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sys_size</strong> (<em>int</em>) – number of qubits</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a circuit which produces GHZ state (a.k.a cat state) on sys_size
+qubits</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>qiskit.circuit.quantumcircuit.QuantumCircuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.hamil_utils.get_random_k_local_gibbs_circ">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.hamil_utils.</span></span><span class="sig-name descname"><span class="pre">get_random_k_local_gibbs_circ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.hamil_utils.get_random_k_local_gibbs_circ" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – the number of qubits in the system.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – the maximal locality of terms in the Gibbs Hamiltonian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a circuit which produces, on a Qiskit simulation, a k-local gibbs
+state with random coefficients for each term between -1 to 1.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>qiskit.circuit.quantumcircuit.QuantumCircuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-HLT.utils.np_utils">
+<span id="hlt-utils-np-utils-module"></span><h2>HLT.utils.np_utils module<a class="headerlink" href="#module-HLT.utils.np_utils" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.np_utils.get_fidelity">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.np_utils.</span></span><span class="sig-name descname"><span class="pre">get_fidelity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_matrix1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_matrix2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.np_utils.get_fidelity" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_matrix1</strong> (<em>Union</em><em>[</em><em>torch.Tensor</em><em>, </em><em>numpy.array</em><em>]</em>) – a density matrix</p></li>
+<li><p><strong>density_matrix2</strong> (<em>Union</em><em>[</em><em>torch.Tensor</em><em>, </em><em>numpy.array</em><em>]</em>) – a density matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the (Ulmann-Josza) fidelity between density_matrix1 and
+density_matrix2</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.np_utils.get_gibbs_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.np_utils.</span></span><span class="sig-name descname"><span class="pre">get_gibbs_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_hermitian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceless</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_stabilization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.np_utils.get_gibbs_hamiltonian" title="Permalink to this definition"></a></dt>
+<dd><blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param density_matrix</dt>
+<dd class="field-odd"><p>the density matrix of a state</p>
+</dd>
+<dt class="field-even">param eps</dt>
+<dd class="field-even"><p>small value, which is added to density_matrix as eps*I in order
+to get more stability before taking the matrix log. If the matrix log
+is singular, eps is increased by step_size</p>
+</dd>
+<dt class="field-odd">param check_hermitian</dt>
+<dd class="field-odd"><p>whether to verify that the Gibbs Hamiltonian is
+hermitian (as should be) or not. If True, raises a warning if the Gibbs
+Hamiltonian is not hermitian, and increases eps.</p>
+</dd>
+<dt class="field-even">param step_size</dt>
+<dd class="field-even"><p>a number of multiple eps each time the matrix log
+is singular.</p>
+</dd>
+<dt class="field-odd">param traceless</dt>
+<dd class="field-odd"><p>whether to enforce a traceless Gibbs Hamiltonian or not
+(since the normalization factor can be absorbed the identity component of
+the Gibbs Hamiltonian we can assume it without loss of generality)</p>
+</dd>
+<dt class="field-even">param max_stabilization</dt>
+<dd class="field-even"><p>the maximal value eps can take before raising
+an error.</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>the Gibbs Hamiltonian (H) which defines the density matrix, i.e
+:math:<a href="#id1"><span class="problematic" id="id2">`</span></a></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>ho = Z*exp(-H)`, where Z is the normalization factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_matrix</strong> (<em>numpy.array</em>) – </p></li>
+<li><p><strong>check_hermitian</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>step_size</strong> (<em>float</em>) – </p></li>
+<li><p><strong>traceless</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>Optional</em>[numpy.array]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.np_utils.is_hermitian">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.np_utils.</span></span><span class="sig-name descname"><span class="pre">is_hermitian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.np_utils.is_hermitian" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.array</em>) – a matrix (can be complex)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if A is hermitian</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.np_utils.normalized_matrix">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.np_utils.</span></span><span class="sig-name descname"><span class="pre">normalized_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.np_utils.normalized_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>Union</em><em>[</em><em>numpy.array</em><em>, </em><em>torch.Tensor</em><em>]</em>) – a matrix</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a*m such that Trace(a*m)=1</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-HLT.utils.pauli_decomposition">
+<span id="hlt-utils-pauli-decomposition-module"></span><h2>HLT.utils.pauli_decomposition module<a class="headerlink" href="#module-HLT.utils.pauli_decomposition" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.utils.pauli_decomposition.</span></span><span class="sig-name descname"><span class="pre">PauliDecomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decomposition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A pauli decomposition of a matrix, defined by the inner product
+<span class="math notranslate nohighlight">\(&lt;A,B&gt;=(1/2**N) * Trace(A*B)\)</span> and from the fact that Pauli matrices are a basis
+of the hermitian matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>operator</strong> (<em>numpy.array</em>) – the decomposed matrix</p></li>
+<li><p><strong>decomposition</strong> (<em>Dict</em><em>[</em><em>qiskit.quantum_info.operators.symplectic.pauli.Pauli</em><em>, </em><em>float</em><em>]</em>) – a map from Pauli to coefficient which defines
+the decomposition, i.e,
+(1/2**N) * Trace(operator*Pauli)=decomposition[Pauli]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.decomposition">
+<span class="sig-name descname"><span class="pre">decomposition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.quantum_info.operators.symplectic.pauli.Pauli</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.decomposition" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.density_matrix_composition">
+<span class="sig-name descname"><span class="pre">density_matrix_composition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.density_matrix_composition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the density matrix of the Gibbs state of the Gibbs Hamiltonian
+defined by the decomposition (see gibbs_hamiltonian_composition)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.get_decomposition_part">
+<span class="sig-name descname"><span class="pre">get_decomposition_part</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.get_decomposition_part" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the sum of the decomposition coefficients squared divided by
+the operator norm squared. This normalization is defined by the
+Parseval theorem.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.get_fidelity_from_decomposition">
+<span class="sig-name descname"><span class="pre">get_fidelity_from_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.get_fidelity_from_decomposition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>density_matrix</strong> (<em>numpy.array</em>) – the density matrix to compare with</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the fidelity between density_matrix and
+density_matrix_composition</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.get_normalized_coefficients_squared_str">
+<span class="sig-name descname"><span class="pre">get_normalized_coefficients_squared_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.get_normalized_coefficients_squared_str" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the normalized (normalization defined by Parseval theorem)
+decomposition as a string. Each line contains a Pauli and
+the matching coefficient (i.e [(1/2**N) *  Trace(operator, Pauli)]**2)
+sorted reversely by the coefficient.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.get_not_normalized_str">
+<span class="sig-name descname"><span class="pre">get_not_normalized_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.get_not_normalized_str" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the decomposition as a string. Each line contains a Pauli and
+the matching coefficient (i.e (1/2**N) *  Trace(operator, Pauli))
+sorted reversely by the coefficient.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.get_not_normalized_str_top_coefficients">
+<span class="sig-name descname"><span class="pre">get_not_normalized_str_top_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.get_not_normalized_str_top_coefficients" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – the number of coefficients to return</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>same as get_not_normalized_str, but only the n largest
+coefficients (considering absolute vaule)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.gibbs_hamiltonian_composition">
+<span class="sig-name descname"><span class="pre">gibbs_hamiltonian_composition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.gibbs_hamiltonian_composition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the Gibbs Hamiltonian defined by the decomposition (i.e
+multiplying each Pauli by its coefficient)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.items" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the items of the decomposition, the key is the Pauli, and the
+value is the coefficient</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>ItemsView</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.norm">
+<span class="sig-name descname"><span class="pre">norm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.norm" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the square rott of the sum of coefficient squared</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.operator">
+<span class="sig-name descname"><span class="pre">operator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.operator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.pauli_decomposition">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pauli_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paulis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.pauli_decomposition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>operator</strong> (<em>numpy.array</em>) – the matrix to decompose</p></li>
+<li><p><strong>paulis</strong> (<em>Iterable</em><em>[</em><em>qiskit.quantum_info.operators.symplectic.pauli.Pauli</em><em>]</em>) – which Paulis to decompose with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the decomposition of the operator defined by the given Paulis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.pauli_exactly_range_k_decomposition">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pauli_exactly_range_k_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.pauli_exactly_range_k_decomposition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>operator</strong> (<em>numpy.array</em>) – the matrix to decompose</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – the locality of Paulis to decompose with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>k-local Pauli decomposition of the operator.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.pauli_up_to_range_k_decomposition">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pauli_up_to_range_k_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.pauli_up_to_range_k_decomposition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>operator</strong> (<em>numpy.array</em>) – the matrix to decompose</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – the maximal locality of Paulis to decompose with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>up k-local Pauli decomposition of the operator.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.PauliDecomposition.sys_size">
+<span class="sig-name descname"><span class="pre">sys_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.utils.pauli_decomposition.PauliDecomposition.sys_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.pauli_decomposition.analyze_density_matrix">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.pauli_decomposition.</span></span><span class="sig-name descname"><span class="pre">analyze_density_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pauli_range</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.pauli_decomposition.analyze_density_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Decompose density_matrix using Paulis with maximal pauli_range locality
+and analyze this decomposition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_matrix</strong> (<em>np.array</em>) – the density matrix to analyze, which fits the
+Gibbs state for the decomposed Gibbs Hamiltonian given in decomposition.</p></li>
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>pauli_range</strong> (<em>int</em>) – the maximal locality of Hamiltonian to decompose
+density_matrix’s Gibbs Hamiltonian with.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tuple which includes the decomposition part
+as defined in <code class="xref py py-attr docutils literal notranslate"><span class="pre">PauliDecomposition.decomposition_part</span></code> and the
+fidelity between density_matrix and the density matrix produced by taking
+Gibbs state of this decomposition’s Gibbs Hamiltonian.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(float, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-HLT.utils.qiskit_utils">
+<span id="hlt-utils-qiskit-utils-module"></span><h2>HLT.utils.qiskit_utils module<a class="headerlink" href="#module-HLT.utils.qiskit_utils" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.qiskit_utils.get_air_simulator">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.qiskit_utils.</span></span><span class="sig-name descname"><span class="pre">get_air_simulator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.qiskit_utils.get_air_simulator" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Qiskit’s aer_simulator (see
+<a class="reference external" href="https://qiskit.org/documentation/tutorials/simulators/1_aer_provider.html">https://qiskit.org/documentation/tutorials/simulators/1_aer_provider.html</a>
+for more info)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.qiskit_utils.get_density_matrix_circuit">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.qiskit_utils.</span></span><span class="sig-name descname"><span class="pre">get_density_matrix_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.qiskit_utils.get_density_matrix_circuit" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits in the system</p></li>
+<li><p><strong>density_matrix</strong> (<em>numpy.array</em>) – the density matrix to simulate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a circuit which produces density_matrix in Qiskit simulation.
+Note: this circuit will not work on a real quantum hardware.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>qiskit.circuit.quantumcircuit.QuantumCircuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.qiskit_utils.get_density_matrix_from_simulation">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.qiskit_utils.</span></span><span class="sig-name descname"><span class="pre">get_density_matrix_from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_to_reconstruct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">AerSimulator('aer_simulator')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_noise_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.qiskit_utils.get_density_matrix_from_simulation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculated the circuit density matrix by using simulation. Note: long
+circuits on many qubits might take long to calculate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circ</strong> (<em>qiskit.circuit.quantumcircuit.QuantumCircuit</em>) – the circuit to calculate the density matrix for</p></li>
+<li><p><strong>qubits_to_reconstruct</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – which qubits’ density matrix needed to be
+reconstructed</p></li>
+<li><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>qiskit.providers.aer.backends.aer_simulator.AerSimulator</em><em>, </em><em>qiskit.providers.backend.Backend</em><em>]</em><em>]</em>) – on which backend to simulate the density matrix on.
+If aer_simulator is taken no noise is used, if a real quantum hardware
+is given, can use the device noise model if use_noise_model is True (see
+qiskit.providers.aer.noise.NoiseModel.from_backend for more info)</p></li>
+<li><p><strong>optimization_level</strong> (<em>int</em>) – How much optimization to perform on the circuits,
+as described in qiskit.compiler.transpile</p></li>
+<li><p><strong>initial_layout</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Initial position of virtual qubits on physical qubits,
+as described in qiskit.compiler.transpile</p></li>
+<li><p><strong>use_noise_model</strong> (<em>bool</em>) – whether to use noise model for real quantum backend
+or not. Note: noise simulation might make the computation slower.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the density matrix produced at the end of the (possibly noisy)
+circuit, calculated with Qiskit aer_simulator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.utils.qiskit_utils.get_up_to_range_k_paulis">
+<span class="sig-prename descclassname"><span class="pre">HLT.utils.qiskit_utils.</span></span><span class="sig-name descname"><span class="pre">get_up_to_range_k_paulis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pauli_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yield_identity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pauli_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.utils.qiskit_utils.get_up_to_range_k_paulis" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>pauli_range</strong> (<em>int</em>) – </p></li>
+<li><p><strong>yield_identity</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>pauli_types</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[qiskit.quantum_info.operators.symplectic.pauli.Pauli]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-HLT.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-HLT.utils" title="Permalink to this headline"></a></h2>
+<p>Package that contains useful utils used for HLT</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="HLT.tomography.html" class="btn btn-neutral float-left" title="HLT.tomography package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yotam Lifshitz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

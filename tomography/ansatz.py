@@ -24,6 +24,7 @@ from utils.hamil_utils import get_density_matrix_from_gibbs_hamiltonian
 class Parameter:
     """
     A class used as an ansatz parameter
+
     :param operator: the operator multiplied by the parameter coefficient
     :param coefficient: the coefficient of the parameter
     :param name: parameter name
@@ -59,6 +60,7 @@ class Ansatz(abc.ABC):
                  data: Dict[Union[PauliBasis, Tuple[str]], Counter], num_parameters: int) -> None:
         """
         The abstract class for all the ansatzes, including the optimization process
+
         :param sys_size: number of qubits
         :param range_hamil_terms: range of Hamiltonian terms in the constraint matrix
          as defined in the main paper
@@ -80,7 +82,6 @@ class Ansatz(abc.ABC):
     @abc.abstractmethod
     def get_gibbs_hamiltonian_from_ansatz(self):
         """
-
         :return: the Gibbs Hamiltonian which the ansatz defines, as described
          in the main paper.
         """
@@ -88,7 +89,6 @@ class Ansatz(abc.ABC):
 
     def forward(self) -> np.array:
         """
-
         :return: the density matrix defined by the Gibbs Hamiltonian of the ansatz
          (see also get_gibbs_hamiltonian_from_ansatz)
         """
@@ -96,7 +96,6 @@ class Ansatz(abc.ABC):
 
     def get_expectation_values_from_data(self, paulis: List[Pauli]) -> Dict[Pauli, complex]:
         """
-
         :param paulis: Paulis which we need expectation values for constructing
          the constraint matrix
         :return: the expectation values for these paulis in a dictionary
@@ -142,7 +141,6 @@ class Ansatz(abc.ABC):
 
     def construct_constraint_matrix(self) -> ConstrainMatrix:
         """
-
         :return: construct the constraint matrix as defined in the main paper and
          stores it on self.constraint_matrix
         """
@@ -156,11 +154,10 @@ class Ansatz(abc.ABC):
     def update_ansatz_parameters_from_constrain_matrix(self) -> None:
         """
         updates the ansatz parameters according to the constraint matrix singular
-         values as described in the main paper. Can be used only after
-         self.construct_constraint_matrix was called. Note: all the constraint
-         matrix singular values are converted into parameters, though only
-         num_parameters are used for the construction of the Gibbs Hamiltonian.
-        :return:
+        values as described in the main paper. Can be used only after
+        self.construct_constraint_matrix was called. Note: all the constraint
+        matrix singular values are converted into parameters, though only
+        num_parameters are used for the construction of the Gibbs Hamiltonian.
         """
         terms = self.constraint_matrix.get_constraint_matrix_hamiltonians(
             num_hamiltonians=self.num_parameters)
@@ -171,7 +168,8 @@ class Ansatz(abc.ABC):
                                  max_coefficient_range: int = 1) -> None:
         """
         Update the ansatz's with new parameters with random coefficients with
-         union distribution over [-max_coefficient_range,max_coefficient_range]
+        union distribution over [-max_coefficient_range,max_coefficient_range]
+
         :param parameters: list of new parameter coefficients ordered by the ansatz's
          parameters order.
         :param names: List of the new parameters names
@@ -194,7 +192,8 @@ class Ansatz(abc.ABC):
     def loss(self, params_coefficients: Optional[List[float]] = None):
         """
         Calculates the loss with new Parameters coefficients and update
-         the ansatz coefficients with the new ones.
+        the ansatz coefficients with the new ones.
+
         :param params_coefficients: the coefficients of the parameters
          for which to calculate the loss with
         :return: the loss, chi squared, as defined in the main paper
@@ -217,7 +216,6 @@ class SciPyAnsatz(Ansatz):
 
     def get_gibbs_hamiltonian_from_ansatz(self) -> np.array:
         """
-
         :return: the Gibbs Hamiltonian which the ansatz defines, as described
          in the main paper.
         """
@@ -230,7 +228,8 @@ class SciPyAnsatz(Ansatz):
     def loss(self, params_coefficients: Optional[List[float]] = None) -> np.array:
         """
         Calculates the loss with new Parameters coefficients and update
-         the ansatz coefficients with the new ones.
+        the ansatz coefficients with the new ones.
+
         :param params_coefficients: the coefficients of the parameters
          for which to calculate the loss with
         :return: the loss, chi squared, as defined in the main paper
@@ -259,8 +258,9 @@ class SciPyAnsatz(Ansatz):
                           x0: Optional[np.array] = None) -> None:
         """
         Optimize the ansatz parameters according to the chi squared loss as
-         described in the main paper. Optimization is done using
-         scipy.optimize.least_squares function.
+        described in the main paper. Optimization is done using
+        scipy.optimize.least_squares function.
+
         :param max_nfev: max_nfev as defined in scipy.optimize.least_squares
         :param jac: jac as defined in max_nfev as defined in scipy.optimize.least_squares
         :param x0: x0 as defined in scipy.optimize.least_squares, if None, taken
@@ -288,7 +288,6 @@ class TorchAnsatz(Ansatz, nn.Module):
                  data: Dict[Union[PauliBasis, Tuple[str]], Counter], num_parameters: Optional[Union[int, float]] = None,
                  lr=1, device: Union[str, torch.device] = 'cpu') -> None:
         """
-
         :param lr: initial learning rate for the Torch optimizer. Note that
          the learning rate is changed during the iterations using the Adam
          optimizer as defined in torch.optim.Adam.
@@ -305,6 +304,7 @@ class TorchAnsatz(Ansatz, nn.Module):
     def train_iteration(self) -> torch.Tensor:
         """
         Performs a single train iteration using PyTorch gradient decent.
+
         :return: loss after the iteration
         """
         self.optimizer.zero_grad()
@@ -318,7 +318,8 @@ class TorchAnsatz(Ansatz, nn.Module):
     def loss(self, params_coefficients: Optional[List[float]] = None) -> torch.Tensor:
         """
         Calculates the loss with new Parameters coefficients and update
-         the ansatz coefficients with the new ones.
+        the ansatz coefficients with the new ones.
+
         :param params_coefficients: should be None, PyTorch ansatz does not
          support this function parameter.
         :return: the loss, chi squared, as defined in the main paper
@@ -343,7 +344,6 @@ class TorchAnsatz(Ansatz, nn.Module):
 
     def get_gibbs_hamiltonian_from_ansatz(self) -> torch.Tensor:
         """
-
         :return: the Gibbs Hamiltonian which the ansatz defines, as described
          in the main paper.
         """
@@ -358,7 +358,8 @@ class TorchAnsatz(Ansatz, nn.Module):
                                  max_coefficient_range: int = 1):
         """
         Update the ansatz's with new parameters with random coefficients with
-         union distribution over [-max_coefficient_range,max_coefficient_range]
+        union distribution over [-max_coefficient_range,max_coefficient_range]
+
         :param parameters: list of new parameter coefficients ordered by the ansatz's
          parameters order.
         :param names: List of the new parameters names
@@ -378,7 +379,8 @@ class TorchAnsatz(Ansatz, nn.Module):
     def train_ansatz(self, num_iterations: int = 1000) -> Ansatz:
         """
         Doing a full train of the TorchAnsatz using gradient decent and Adam
-         optimizer
+        optimizer
+
         :param num_iterations: number of iterations of gradient decent
         :return: the trained ansatz.
         """
@@ -420,7 +422,6 @@ class AnsatzResults:
                  **kwargs
                  ) -> None:
         """
-
         :param cyclic_measurer: the cyclic measurer used for the measurements
         :param ansatz: the ansatz reconstructing the density matrix
         :param loss: the final loss after the optimization
@@ -445,13 +446,13 @@ class AnsatzResults:
     def save_results(self, directory: str) -> None:
         """
         Saves the results as a npz file. Note: this function uses pickle which
-         may have issues for loading data after code changes. It is recommended
-         to implement another method for saving results in order to reduce
-         this dependency.
+        may have issues for loading data after code changes. It is recommended
+        to implement another method for saving results in order to reduce
+        this dependency.
+
         :param directory: a global or relative path to save the results in
          with the following name format:
          backend_name_sys-size_num-parameters-time.npz
-        :return:
         """
         data = self.__dict__.copy()
         data['cyclic_measurer'].backend = Aer.get_backend('aer_simulator')
@@ -462,7 +463,6 @@ class AnsatzResults:
     @classmethod
     def load_results(cls, name: str, directory: str):
         """
-
         :param name: the result file name (without the .npz extension)
         :param directory: a global or relative path to the directory where the
          results are saved.
@@ -478,7 +478,6 @@ class AnsatzResults:
 def get_ansatz(qubits_to_reconstruct: List[int], is_torch: bool, num_parameters: Optional[int], range_constraints: int,
                range_hamiltonian_terms: int, results: Dict[Union[PauliBasis, Tuple[str]], Counter]) -> Ansatz:
     """
-
     :param qubits_to_reconstruct: the qubits for which the density matrix will be
      reconstructed.
     :param is_torch: whether to use PyTorch (True) simulation or Scipy least squares

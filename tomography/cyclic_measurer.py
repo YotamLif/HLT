@@ -84,12 +84,10 @@ class CyclicMeasurer:
     A class which performs Overlapping Local Tomography as described in
     https://arxiv.org/pdf/2108.08824.pdf for 1D open chain.
 
-    :param bases: constant for Pauli strings
     :param qubits: the qubit indices to measure
     :param circ: the quantum circuit which produce the density matrix to be
      measured
     :param backend: used for simulating or running the measurements.
-
     """
     bases = ['X', 'Y', 'Z']
 
@@ -114,6 +112,7 @@ class CyclicMeasurer:
             -> Dict[PauliBasis, Counter]:
         """
         The main function of CyclicMeasurer
+
         :param cycle_size: the cycle size for which measurements will be
          generated. All (cycle_size)-local Paulis will be measured. In the case
          of HLT this size is defined by (see also CyclicMeasurer.get_cycle_size):
@@ -159,7 +158,8 @@ class CyclicMeasurer:
     def get_cycle_size(range_hamiltonians: int, range_constraints: int) -> int:
         """
         Static method for getting the cycle size of HLT which is defined:
-         range of constraints + range of Hamiltonians - 1
+        range of constraints + range of Hamiltonians - 1
+
         :param range_hamiltonians: the range of Hamiltonians in the constraint matrix
          as defined in the main paper.
         :param range_constraints: the range of constraints in the constraint matrix
@@ -181,7 +181,6 @@ class CyclicMeasurer:
 
     def get_pauli_bases(self, cycle_size: int) -> List[PauliBasis]:
         """
-
         :param cycle_size: the cycle size as defined in Overlapping local tomography.
         :return: the Pauli bases needed to be measured (defined by the number of
          qubits and cycle size.
@@ -192,7 +191,6 @@ class CyclicMeasurer:
 
     def get_pauli_labels(self, cycle_size) -> List[Tuple[str]]:
         """
-
         :param cycle_size: the cycle size as defined in Overlapping local tomography.
         :return: the Pauli bases labels needed to be measured (defined by the number
          of qubits and cycle size.
@@ -205,7 +203,6 @@ class CyclicMeasurer:
     @staticmethod
     def get_number_of_shots_per_experiment(bases: List[Union[tuple, PauliBasis]], total_number_of_shots: int) -> int:
         """
-
         :param bases: the measurements needed to be measured
         :param total_number_of_shots: total number of shots for all bases
         :return: number of measurements for each basis (remainder of shots which

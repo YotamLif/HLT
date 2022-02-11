@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HLT.tomography package &mdash; HLT 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HLT.utils package" href="HLT.utils.html" />
+    <link rel="prev" title="HLT.examples package" href="HLT.examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HLT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">HLT</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="HLT.html">HLT package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="HLT.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HLT.examples.html">HLT.examples package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HLT.tomography package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HLT.utils.html">HLT.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="HLT.html#module-HLT">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HLT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">HLT</a> &raquo;</li>
+          <li><a href="HLT.html">HLT package</a> &raquo;</li>
+      <li>HLT.tomography package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/HLT.tomography.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hlt-tomography-package">
+<h1>HLT.tomography package<a class="headerlink" href="#hlt-tomography-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-HLT.tomography.ansatz">
+<span id="hlt-tomography-ansatz-module"></span><h2>HLT.tomography.ansatz module<a class="headerlink" href="#module-HLT.tomography.ansatz" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">Ansatz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_hamil_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>The abstract class for all the ansatzes, including the optimization process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits</p></li>
+<li><p><strong>range_hamil_terms</strong> (<em>int</em>) – range of Hamiltonian terms in the constraint matrix
+as defined in the main paper</p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – range of constraints in the constraint matrix as
+defined in the main paper</p></li>
+<li><p><strong>data</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><em>tomography.cyclic_measurer.PauliBasis</em></a><em>, </em><em>Tuple</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>Counter</em><em>]</em>) – dictionary from Pauli basis to the measurement results of that basis</p></li>
+<li><p><strong>num_parameters</strong> (<em>int</em>) – number of parameters to be used in the ansatz (denoted
+as ‘l’ in the main paper graphs)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.constraint_matrix">
+<span class="sig-name descname"><span class="pre">constraint_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#HLT.tomography.constraint_matrix.ConstrainMatrix" title="HLT.tomography.constraint_matrix.ConstrainMatrix"><span class="pre">tomography.constraint_matrix.ConstrainMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.constraint_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.construct_constraint_matrix">
+<span class="sig-name descname"><span class="pre">construct_constraint_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.construct_constraint_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>construct the constraint matrix as defined in the main paper and
+stores it on self.constraint_matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#HLT.tomography.constraint_matrix.ConstrainMatrix" title="HLT.tomography.constraint_matrix.ConstrainMatrix">tomography.constraint_matrix.ConstrainMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><span class="pre">tomography.cyclic_measurer.PauliBasis</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Counter</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.forward" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the density matrix defined by the Gibbs Hamiltonian of the ansatz
+(see also get_gibbs_hamiltonian_from_ansatz)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.get_expectation_values_from_data">
+<span class="sig-name descname"><span class="pre">get_expectation_values_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paulis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.get_expectation_values_from_data" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>paulis</strong> (<em>List</em><em>[</em><em>qiskit.quantum_info.operators.symplectic.pauli.Pauli</em><em>]</em>) – Paulis which we need expectation values for constructing
+the constraint matrix</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the expectation values for these paulis in a dictionary
+ordered by the Pauli bases</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Dict</em>[qiskit.quantum_info.operators.symplectic.pauli.Pauli, complex]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.get_gibbs_hamiltonian_from_ansatz">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_gibbs_hamiltonian_from_ansatz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.get_gibbs_hamiltonian_from_ansatz" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the Gibbs Hamiltonian which the ansatz defines, as described
+in the main paper.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.loss">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_coefficients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.loss" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the loss with new Parameters coefficients and update
+the ansatz coefficients with the new ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params_coefficients</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – the coefficients of the parameters
+for which to calculate the loss with</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the loss, chi squared, as defined in the main paper</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.num_parameters">
+<span class="sig-name descname"><span class="pre">num_parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.num_parameters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#HLT.tomography.ansatz.Parameter" title="HLT.tomography.ansatz.Parameter"><span class="pre">HLT.tomography.ansatz.Parameter</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.parameters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.range_constraints">
+<span class="sig-name descname"><span class="pre">range_constraints</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.range_constraints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.range_hamil_terms">
+<span class="sig-name descname"><span class="pre">range_hamil_terms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.range_hamil_terms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.sys_size">
+<span class="sig-name descname"><span class="pre">sys_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.sys_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.update_ansatz_parameters">
+<span class="sig-name descname"><span class="pre">update_ansatz_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_coefficient_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.update_ansatz_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Update the ansatz’s with new parameters with random coefficients with
+union distribution over [-max_coefficient_range,max_coefficient_range]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<em>List</em><em>[</em><em>numpy.array</em><em>]</em>) – list of new parameter coefficients ordered by the ansatz’s
+parameters order.</p></li>
+<li><p><strong>names</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of the new parameters names</p></li>
+<li><p><strong>max_coefficient_range</strong> (<em>int</em>) – the maximal (and minimal value) a random
+coefficient can get.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Ansatz.update_ansatz_parameters_from_constrain_matrix">
+<span class="sig-name descname"><span class="pre">update_ansatz_parameters_from_constrain_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Ansatz.update_ansatz_parameters_from_constrain_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>updates the ansatz parameters according to the constraint matrix singular
+values as described in the main paper. Can be used only after
+self.construct_constraint_matrix was called. Note: all the constraint
+matrix singular values are converted into parameters, though only
+num_parameters are used for the construction of the Gibbs Hamiltonian.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">AnsatzResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cyclic_measurer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ansatz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth_density_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fidelity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cyclic_measurer</strong> (<a class="reference internal" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer" title="HLT.tomography.cyclic_measurer.CyclicMeasurer"><em>tomography.cyclic_measurer.CyclicMeasurer</em></a>) – the cyclic measurer used for the measurements</p></li>
+<li><p><strong>ansatz</strong> (<a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz"><em>HLT.tomography.ansatz.Ansatz</em></a>) – the ansatz reconstructing the density matrix</p></li>
+<li><p><strong>loss</strong> (<em>float</em>) – the final loss after the optimization</p></li>
+<li><p><strong>ground_truth_density_matrix</strong> (<em>numpy.array</em>) – a ground truth density matrix to be
+compared with the ansatz result. Usually calculated using circuit
+simulation (with noise model in case of hardware backend).</p></li>
+<li><p><strong>fidelity</strong> (<em>float</em>) – fidelity between the reconstructed density matrix and
+ground_truth_density_matrix</p></li>
+<li><p><strong>kwargs</strong> – other data to save.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.ansatz">
+<span class="sig-name descname"><span class="pre">ansatz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz"><span class="pre">HLT.tomography.ansatz.Ansatz</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.ansatz" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.cyclic_measurer">
+<span class="sig-name descname"><span class="pre">cyclic_measurer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer" title="HLT.tomography.cyclic_measurer.CyclicMeasurer"><span class="pre">tomography.cyclic_measurer.CyclicMeasurer</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.cyclic_measurer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.fidelity">
+<span class="sig-name descname"><span class="pre">fidelity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.fidelity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.ground_truth_density_matrix">
+<span class="sig-name descname"><span class="pre">ground_truth_density_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.ground_truth_density_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.load_results">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.load_results" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – the result file name (without the .npz extension)</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – a global or relative path to the directory where the
+results are saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the results object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.loss">
+<span class="sig-name descname"><span class="pre">loss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.loss" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.reconstructed_density_matrix">
+<span class="sig-name descname"><span class="pre">reconstructed_density_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.reconstructed_density_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.AnsatzResults.save_results">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.AnsatzResults.save_results" title="Permalink to this definition"></a></dt>
+<dd><p>Saves the results as a npz file. Note: this function uses pickle which
+may have issues for loading data after code changes. It is recommended
+to implement another method for saving results in order to reduce
+this dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> (<em>str</em>) – a global or relative path to save the results in
+with the following name format:
+backend_name_sys-size_num-parameters-time.npz</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Parameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used as an ansatz parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operator</strong> (<em>numpy.array</em>) – the operator multiplied by the parameter coefficient</p></li>
+<li><p><strong>coefficient</strong> (<em>float</em>) – the coefficient of the parameter</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – parameter name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Parameter.coefficient">
+<span class="sig-name descname"><span class="pre">coefficient</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Parameter.coefficient" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Parameter.get_parameter">
+<span class="sig-name descname"><span class="pre">get_parameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.Parameter.get_parameter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the full operator parameter, coefficient * operator</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Parameter.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Parameter.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.Parameter.operator">
+<span class="sig-name descname"><span class="pre">operator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><a class="headerlink" href="#HLT.tomography.ansatz.Parameter.operator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.SciPyAnsatz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">SciPyAnsatz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_hamil_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_lin_ls_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.SciPyAnsatz" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.tomography.ansatz.Ansatz</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>non_lin_ls_bounds</strong> (<em>float</em>) – non linear least squares bound as defined
+in scipy.optimize.least_squares.</p></li>
+<li><p><strong>sys_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>range_hamil_terms</strong> (<em>int</em>) – </p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – </p></li>
+<li><p><strong>data</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><em>tomography.cyclic_measurer.PauliBasis</em></a><em>, </em><em>Tuple</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>Counter</em><em>]</em>) – </p></li>
+<li><p><strong>num_parameters</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.SciPyAnsatz.get_gibbs_hamiltonian_from_ansatz">
+<span class="sig-name descname"><span class="pre">get_gibbs_hamiltonian_from_ansatz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.SciPyAnsatz.get_gibbs_hamiltonian_from_ansatz" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the Gibbs Hamiltonian which the ansatz defines, as described
+in the main paper.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.SciPyAnsatz.loss">
+<span class="sig-name descname"><span class="pre">loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_coefficients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.SciPyAnsatz.loss" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the loss with new Parameters coefficients and update
+the ansatz coefficients with the new ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params_coefficients</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – the coefficients of the parameters
+for which to calculate the loss with</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the loss, chi squared, as defined in the main paper</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.SciPyAnsatz.non_lin_ls_bounds">
+<span class="sig-name descname"><span class="pre">non_lin_ls_bounds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#HLT.tomography.ansatz.SciPyAnsatz.non_lin_ls_bounds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.SciPyAnsatz.solve_iteratively">
+<span class="sig-name descname"><span class="pre">solve_iteratively</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_nfev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'2-point'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.SciPyAnsatz.solve_iteratively" title="Permalink to this definition"></a></dt>
+<dd><p>Optimize the ansatz parameters according to the chi squared loss as
+described in the main paper. Optimization is done using
+scipy.optimize.least_squares function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_nfev</strong> (<em>int</em>) – max_nfev as defined in scipy.optimize.least_squares</p></li>
+<li><p><strong>jac</strong> (<em>str</em>) – jac as defined in max_nfev as defined in scipy.optimize.least_squares</p></li>
+<li><p><strong>x0</strong> (<em>Optional</em><em>[</em><em>numpy.array</em><em>]</em>) – x0 as defined in scipy.optimize.least_squares, if None, taken
+to be the parameters coefficients.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">TorchAnsatz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_hamil_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.tomography.ansatz.Ansatz</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em>) – initial learning rate for the Torch optimizer. Note that
+the learning rate is changed during the iterations using the Adam
+optimizer as defined in torch.optim.Adam.</p></li>
+<li><p><strong>device</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>torch.device</em><em>]</em>) – the device to do the Torch calculations on (CPU or GPU)</p></li>
+<li><p><strong>sys_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>range_hamil_terms</strong> (<em>int</em>) – </p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – </p></li>
+<li><p><strong>data</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><em>tomography.cyclic_measurer.PauliBasis</em></a><em>, </em><em>Tuple</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>Counter</em><em>]</em>) – </p></li>
+<li><p><strong>num_parameters</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.get_gibbs_hamiltonian_from_ansatz">
+<span class="sig-name descname"><span class="pre">get_gibbs_hamiltonian_from_ansatz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.get_gibbs_hamiltonian_from_ansatz" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the Gibbs Hamiltonian which the ansatz defines, as described
+in the main paper.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.loss">
+<span class="sig-name descname"><span class="pre">loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_coefficients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.loss" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the loss with new Parameters coefficients and update
+the ansatz coefficients with the new ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params_coefficients</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – should be None, PyTorch ansatz does not
+support this function parameter.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the loss, chi squared, as defined in the main paper</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.lr">
+<span class="sig-name descname"><span class="pre">lr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.lr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.optimizer">
+<span class="sig-name descname"><span class="pre">optimizer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.optim.optimizer.Optimizer</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.optimizer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.torch_parameters">
+<span class="sig-name descname"><span class="pre">torch_parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.nn.modules.container.ParameterDict</span></em><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.torch_parameters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.train_ansatz">
+<span class="sig-name descname"><span class="pre">train_ansatz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.train_ansatz" title="Permalink to this definition"></a></dt>
+<dd><p>Doing a full train of the TorchAnsatz using gradient decent and Adam
+optimizer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_iterations</strong> (<em>int</em>) – number of iterations of gradient decent</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the trained ansatz.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz">HLT.tomography.ansatz.Ansatz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.train_iteration">
+<span class="sig-name descname"><span class="pre">train_iteration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.train_iteration" title="Permalink to this definition"></a></dt>
+<dd><p>Performs a single train iteration using PyTorch gradient decent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>loss after the iteration</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.TorchAnsatz.update_ansatz_parameters">
+<span class="sig-name descname"><span class="pre">update_ansatz_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_coefficient_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.TorchAnsatz.update_ansatz_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Update the ansatz’s with new parameters with random coefficients with
+union distribution over [-max_coefficient_range,max_coefficient_range]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<em>List</em><em>[</em><em>numpy.array</em><em>]</em>) – list of new parameter coefficients ordered by the ansatz’s
+parameters order.</p></li>
+<li><p><strong>names</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of the new parameters names</p></li>
+<li><p><strong>max_coefficient_range</strong> (<em>int</em>) – the maximal (and minimal value) a random
+coefficient can get.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HLT.tomography.ansatz.get_ansatz">
+<span class="sig-prename descclassname"><span class="pre">HLT.tomography.ansatz.</span></span><span class="sig-name descname"><span class="pre">get_ansatz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits_to_reconstruct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_torch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_hamiltonian_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.ansatz.get_ansatz" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubits_to_reconstruct</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – the qubits for which the density matrix will be
+reconstructed.</p></li>
+<li><p><strong>is_torch</strong> (<em>bool</em>) – whether to use PyTorch (True) simulation or Scipy least squares
+gradient decent optimization (False).</p></li>
+<li><p><strong>num_parameters</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – amount of parameters to used in the ansatz (defined as
+‘l’ in the main paper graphs).</p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – range of constraints in the constraint matrix as
+defined in the main paper</p></li>
+<li><p><strong>range_hamiltonian_terms</strong> (<em>int</em>) – range of Hamiltonian terms in the constraint matrix
+as defined in the main paper</p></li>
+<li><p><strong>results</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><em>tomography.cyclic_measurer.PauliBasis</em></a><em>, </em><em>Tuple</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>Counter</em><em>]</em>) – results dictionary for each Pauli basis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trained ansatz which reconstruct the density matrix as defined in
+the main paper algorithm.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#HLT.tomography.ansatz.Ansatz" title="HLT.tomography.ansatz.Ansatz">HLT.tomography.ansatz.Ansatz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-HLT.tomography.constraint_matrix">
+<span id="hlt-tomography-constraint-matrix-module"></span><h2>HLT.tomography.constraint_matrix module<a class="headerlink" href="#module-HLT.tomography.constraint_matrix" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.constraint_matrix.</span></span><span class="sig-name descname"><span class="pre">ConstrainMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_hamil_terms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys_size</strong> (<em>int</em>) – number of qubits to reconstruct</p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – the maximum locality of the constraints in the
+constraint matrix (should be bigger than range_hamil_terms, usually taken
+as range_constraints=range_hamil_terms+1)</p></li>
+<li><p><strong>range_hamil_terms</strong> (<em>int</em>) – the maximum locality of the Hamiltonians which
+assumed to be in the GH. These Hamiltonian will define the constraint
+matrix.</p></li>
+<li><p><strong>hamil_terms</strong> – list of Paulis used in the constraint matrix</p></li>
+<li><p><strong>constraints</strong> – list of constraints (Paulis) used in the constraint
+matrix</p></li>
+<li><p><strong>operator_matrix</strong> – a matrix which contains the operators in the
+constraint matrix entries as defined in the main paper. Since the
+Hamiltonians and constraint are Pauli operators with k1 and k2 maximal
+locality, respectively, these entries, which are commutation relations
+between constraints and hamiltonians, are at most (k1+k2-1)-local Paulis
+(usually k2=k1+1).</p></li>
+<li><p><strong>constraint_matrix</strong> – the constraint matrix filled with expectation
+value from experiment or simulation data (after get_constraint_matrix is
+called).</p></li>
+<li><p><strong>sys_size</strong> – number of qubits to reconstruct</p></li>
+<li><p><strong>range_constraints</strong> – the maximum locality of the constraints, which
+are taken to be Pauli operators, in the constraint matrix (should be
+bigger than range_hamil_terms, usually taken
+as range_constraints=range_hamil_terms+1).</p></li>
+<li><p><strong>range_hamil_terms</strong> – the maximum locality of the Hamiltonians
+which assumed to be in the GH. These Hamiltonian will define the
+constraint matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.constraint_matrix">
+<span class="sig-name descname"><span class="pre">constraint_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.array</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.constraint_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.constraints">
+<span class="sig-name descname"><span class="pre">constraints</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.quantum_info.operators.symplectic.pauli.Pauli</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.constraints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.get_constraint_matrix">
+<span class="sig-name descname"><span class="pre">get_constraint_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expectations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.get_constraint_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Fill the constraint matrix with expectation values from simulation or
+experiment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>expectations</strong> (<em>Dict</em><em>[</em><em>qiskit.quantum_info.operators.symplectic.pauli.Pauli</em><em>, </em><em>complex</em><em>]</em>) – a map from Pauli operator to its expectation value
+in the experiment or simulation</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a constraint matrix, as defined in the main text, with the
+given expectation values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.get_constraint_matrix_hamiltonians">
+<span class="sig-name descname"><span class="pre">get_constraint_matrix_hamiltonians</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_hamiltonians</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.get_constraint_matrix_hamiltonians" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_hamiltonians</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the Hamiltonians defined by the num_hamiltonians lowest
+singular vectors of the constraint matrix (see main text for details)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[numpy.array]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.get_paulis_in_constraint_matrix">
+<span class="sig-name descname"><span class="pre">get_paulis_in_constraint_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.get_paulis_in_constraint_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all the Paulis in the constraint matrix entries</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>List</em>[qiskit.quantum_info.operators.symplectic.pauli.Pauli]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.hamil_terms">
+<span class="sig-name descname"><span class="pre">hamil_terms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.quantum_info.operators.symplectic.pauli.Pauli</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.hamil_terms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.operator_matrix">
+<span class="sig-name descname"><span class="pre">operator_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.quantum_info.operators.symplectic.pauli.Pauli</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.array</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.operator_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.range_constraints">
+<span class="sig-name descname"><span class="pre">range_constraints</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.range_constraints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.range_hamil_terms">
+<span class="sig-name descname"><span class="pre">range_hamil_terms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.range_hamil_terms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.constraint_matrix.ConstrainMatrix.sys_size">
+<span class="sig-name descname"><span class="pre">sys_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.constraint_matrix.ConstrainMatrix.sys_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-HLT.tomography.cyclic_measurer">
+<span id="hlt-tomography-cyclic-measurer-module"></span><h2>HLT.tomography.cyclic_measurer module<a class="headerlink" href="#module-HLT.tomography.cyclic_measurer" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.Basis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.cyclic_measurer.</span></span><span class="sig-name descname"><span class="pre">Basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.Basis" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for measurement basis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>basis</strong> (<em>str</em>) – string representation of the basis.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.Basis.basis">
+<span class="sig-name descname"><span class="pre">basis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.Basis.basis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.Basis.basis_measurement">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basis_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.Basis.basis_measurement" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>measure</strong> (<em>bool</em>) – if true, adds a measurement for all the qubits</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a QuantumCircuit which represents the rotation
+needed for the Basis.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>qiskit.circuit.quantumcircuit.QuantumCircuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.cyclic_measurer.</span></span><span class="sig-name descname"><span class="pre">CyclicMeasurer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class which performs Overlapping Local Tomography as described in
+<a class="reference external" href="https://arxiv.org/pdf/2108.08824.pdf">https://arxiv.org/pdf/2108.08824.pdf</a> for 1D open chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubits</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – the qubit indices to measure</p></li>
+<li><p><strong>circ</strong> (<em>qiskit.circuit.quantumcircuit.QuantumCircuit</em>) – the quantum circuit which produce the density matrix to be
+measured</p></li>
+<li><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>qiskit.providers.aer.backends.aer_simulator.AerSimulator</em><em>]</em>) – used for simulating or running the measurements.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.backend">
+<span class="sig-name descname"><span class="pre">backend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">qiskit.providers.aer.backends.aer_simulator.AerSimulator</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.backend" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.bases">
+<span class="sig-name descname"><span class="pre">bases</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['X',</span> <span class="pre">'Y',</span> <span class="pre">'Z']</span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.bases" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.circ">
+<span class="sig-name descname"><span class="pre">circ</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">qiskit.circuit.quantumcircuit.QuantumCircuit</span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.circ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.get_cycle_size">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_cycle_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_hamiltonians</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_constraints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.get_cycle_size" title="Permalink to this definition"></a></dt>
+<dd><p>Static method for getting the cycle size of HLT which is defined:
+range of constraints + range of Hamiltonians - 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>range_hamiltonians</strong> (<em>int</em>) – the range of Hamiltonians in the constraint matrix
+as defined in the main paper.</p></li>
+<li><p><strong>range_constraints</strong> (<em>int</em>) – the range of constraints in the constraint matrix
+as defined in the main paper.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the cycle size of HLT</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.get_cyclic_measurements_results">
+<span class="sig-name descname"><span class="pre">get_cyclic_measurements_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycle_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_number_of_shots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.get_cyclic_measurements_results" title="Permalink to this definition"></a></dt>
+<dd><p>The main function of CyclicMeasurer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cycle_size</strong> (<em>int</em>) – the cycle size for which measurements will be
+generated. All (cycle_size)-local Paulis will be measured. In the case
+of HLT this size is defined by (see also CyclicMeasurer.get_cycle_size):
+range of constraints + range of Hamiltonians - 1</p></li>
+<li><p><strong>total_number_of_shots</strong> (<em>int</em>) – the total number of shots to use in all
+the bases, in total (remainder of shots which cannot be distributed
+equally between all bases is discarded).</p></li>
+<li><p><strong>optimization_level</strong> (<em>int</em>) – How much optimization to perform on the circuits,
+as described in qiskit.compiler.transpile</p></li>
+<li><p><strong>initial_layout</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Initial position of virtual qubits on physical qubits,
+as described in qiskit.compiler.transpile</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary from the Pauli bases to Counters with the results
+for each basis</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Dict</em>[<a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis">HLT.tomography.cyclic_measurer.PauliBasis</a>, collections.Counter]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.get_number_of_shots_per_experiment">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_number_of_shots_per_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_number_of_shots</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.get_number_of_shots_per_experiment" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bases</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>tuple</em><em>, </em><a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis"><em>HLT.tomography.cyclic_measurer.PauliBasis</em></a><em>]</em><em>]</em>) – the measurements needed to be measured</p></li>
+<li><p><strong>total_number_of_shots</strong> (<em>int</em>) – total number of shots for all bases</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>number of measurements for each basis (remainder of shots which
+cannot be distributed equally between all bases is discarded).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.get_pauli_bases">
+<span class="sig-name descname"><span class="pre">get_pauli_bases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycle_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.get_pauli_bases" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cycle_size</strong> (<em>int</em>) – the cycle size as defined in Overlapping local tomography.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the Pauli bases needed to be measured (defined by the number of
+qubits and cycle size.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference internal" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="HLT.tomography.cyclic_measurer.PauliBasis">HLT.tomography.cyclic_measurer.PauliBasis</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.get_pauli_labels">
+<span class="sig-name descname"><span class="pre">get_pauli_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycle_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.get_pauli_labels" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cycle_size</strong> – the cycle size as defined in Overlapping local tomography.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the Pauli bases labels needed to be measured (defined by the number
+of qubits and cycle size.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[<em>Tuple</em>[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.qubits">
+<span class="sig-name descname"><span class="pre">qubits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.qubits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.CyclicMeasurer.system_size">
+<span class="sig-name descname"><span class="pre">system_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.CyclicMeasurer.system_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.PauliBasis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HLT.tomography.cyclic_measurer.</span></span><span class="sig-name descname"><span class="pre">PauliBasis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.PauliBasis" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#HLT.tomography.cyclic_measurer.Basis" title="HLT.tomography.cyclic_measurer.Basis"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLT.tomography.cyclic_measurer.Basis</span></code></a></p>
+<p>Pauli basis: represented by Pauli string (X,Y,Z)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>basis</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.PauliBasis.basis">
+<span class="sig-name descname"><span class="pre">basis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#HLT.tomography.cyclic_measurer.PauliBasis.basis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HLT.tomography.cyclic_measurer.PauliBasis.basis_measurement">
+<span class="sig-name descname"><span class="pre">basis_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HLT.tomography.cyclic_measurer.PauliBasis.basis_measurement" title="Permalink to this definition"></a></dt>
+<dd><p>Pauli basis measurement</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>measure</strong> (<em>bool</em>) – if true, adds a measurement for all the qubits</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a QuantumCircuit which represents the measure in the
+specific Pauli basis.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>qiskit.circuit.quantumcircuit.QuantumCircuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-HLT.tomography">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-HLT.tomography" title="Permalink to this headline"></a></h2>
+<p>Package which contains all the HLT method logic, including measurements,
+building the constraint matrix, creating an ansatz and optimization</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="HLT.examples.html" class="btn btn-neutral float-left" title="HLT.examples package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HLT.utils.html" class="btn btn-neutral float-right" title="HLT.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yotam Lifshitz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
